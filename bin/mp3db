@@ -1,0 +1,12 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+use MP3::DB::App;
+
+# PODNAME: mp3db
+# ABSTRACT: scan and index MP3 collections into mongodb databases
+
+$main::VERSION = $MP3::DB::App::VERSION;
+
+MP3::DB::App->run;
