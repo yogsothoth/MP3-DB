@@ -14,13 +14,13 @@ isa_ok($scanner, 'MP3::DB::Scanner');
 can_ok($scanner, 'scan', 'tagmp3', 'tags');
 
 # ID3
-my $testfile = file('..', '..', 'testdata', 'test.mp3');
+my $testfile = file('testdata', 'test.mp3');
 is_deeply($scanner->tags($testfile), { title => 'Only a test with a ID3v1 and ID3v2 tag', song => 'Only a test with a ID3v1 and ID3v2 tag', track => 10, artist => 'Artist', album => 'Album', year => 2000, comment => 'test', genre => 'Ska' }, "ID3 tags extraction");
 
-my $wrong_file = "../../testdata/dummy.txt";
+my $wrong_file = "testdata/dummy.txt";
 is($scanner->tagmp3($wrong_file), undef, "tagmp3 only deals with MP3 files");
 
-my $directory = "../../testdata/dummydir.mp3";
+my $directory = "testdata/dummydir.mp3";
 is($scanner->tagmp3($directory), undef, "tagmp3 skips directories");
 
 # warnings
